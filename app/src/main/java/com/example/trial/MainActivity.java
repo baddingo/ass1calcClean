@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     static boolean getPrecisionPref(MainActivity mainActivity) {
-        //Gets the precision setting preference
+        //Gets the decimal setting preference
         SharedPreferences sharedPreferences = mainActivity.getSharedPreferences("sharedPrefs", 0);
         return sharedPreferences.getBoolean("decimal_mode", false);
     }

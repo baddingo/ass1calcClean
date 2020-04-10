@@ -13,12 +13,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
-//    PUBLIC VARIABLES HERE
-private Switch decimal_mode;
+
+    private Switch decimal_mode;
     private Switch shorthand_notation;
 
     private boolean decimal;
     private boolean shorthand;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +48,12 @@ private Switch decimal_mode;
 //        shorthand_notation.setChecked(shorthand);
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
-    }
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        //Add back button to toolbar
+//        onBackPressed();
+//        return true;
+//    }
 
     public void onClickSaveData(View view) {
         //Saves the preferences whenever a switch is clicked

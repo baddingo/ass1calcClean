@@ -31,13 +31,15 @@
             android:id="@+id/theme_switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dark Theme" />
+            android:text="@string/dark_theme"
+            android:onClick="onClickSaveData" />
 
         <Switch
             android:id="@+id/decimal_switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Decimal Calculations" />
+            android:text="@string/decimal_calculations"
+            android:onClick="onClickSaveData" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

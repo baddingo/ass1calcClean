@@ -19,21 +19,21 @@ public class MainActivity extends AppCompatActivity {
     TextView output_text;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         amount_text = findViewById(R.id.amount_text);
         percent_text = findViewById(R.id.percent_text);
         calculate_button = findViewById(R.id.calculate_button);
         output_text = findViewById(R.id.output_text);
+
         calculate_button.setOnClickListener(new View.OnClickListener() {
 
-            //            Handle calculate button click
+            //Handle calculate button click
             @Override
             public void onClick(View v) {
+                //error checking to ensure the user input fields are not blank
                 try {
-                    //error checking to ensure the user input fields are not blank
-
                         float percentage = Float.parseFloat(percent_text.getText().toString());
                         float dec = percentage / 100;
                         float total = dec * Float.parseFloat(amount_text.getText().toString());
@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
             });
 
             Toolbar toolbar = findViewById(R.id.toolbar);
-
             setSupportActionBar(toolbar);
         }
 
@@ -60,9 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onOptionsItemSelected (MenuItem item){
-            // Handle action bar item clicks here. The action bar will
-            // automatically handle clicks on the Home/Up button, so long
-            // as you specify a parent activity in AndroidManifest.xml.
+            // Handle action bar item clicks here
             int id = item.getItemId();
 
             //noinspection SimplifiableIfStatement

@@ -15,20 +15,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
     public static final String PREF_DARK_THEME = "prefdarktheme";
-    private static final String PREFS_NAME = "prefname";
+    public static final String PREFS_NAME = "prefname";
     //    switch variables
     private Switch precision_mode;
     private Switch theme_mode;
     private boolean precision_boolean;
     private boolean theme_boolean;
-    public boolean useDarkTheme;
+    public static boolean useDarkTheme;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        // Use the chosen theme
+        // apply the chosen theme to SettingsActivity
         SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         useDarkTheme = preferences.getBoolean(PREF_DARK_THEME, false);
-
         if (useDarkTheme) {
             setTheme(R.style.AppTheme_Dark_NoActionBar);
         }
@@ -41,7 +40,7 @@ public class SettingsActivity extends AppCompatActivity {
         precision_mode = findViewById(R.id.decimal_switch);
         theme_mode = findViewById(R.id.theme_switch);
         theme_mode.setChecked(useDarkTheme);
-        //theme
+        //connecting switch toggle to theme
         theme_mode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton view, boolean isChecked) {
@@ -52,6 +51,7 @@ public class SettingsActivity extends AppCompatActivity {
         updateViews();
     }
 
+    //storing users theme preference and restarting activity
     private void toggleTheme(boolean darkTheme) {
         SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
         editor.putBoolean(PREF_DARK_THEME, darkTheme);
